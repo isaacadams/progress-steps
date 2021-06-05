@@ -1,3 +1,3 @@
-import Snap from 'snapsvg';
+import * as visualize from './visualize';
 
-window['Snap'] = Snap;
+window['visualize'] = visualize;
