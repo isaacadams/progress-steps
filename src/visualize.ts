@@ -2,9 +2,9 @@ import settings from './settings';
 import snap from './components/snap';
 import { createItem } from './components/item';
 import { Element } from 'snapsvg';
-//import { addImagePatternToDefs } from './functions/addImagePatternToDefs';
-//import checkMark from 'url:./../check-mark.svg';
-//addImagePatternToDefs('check-mark', checkMark);
+import { addImagePatternToDefs } from './functions/addImagePatternToDefs';
+import checkMark from 'url:./../check-mark.svg';
+addImagePatternToDefs('check-mark', checkMark);
 
 export const steps = [createItem(1), createItem(2), createItem(3)];
 let [one, two, three] = steps;
