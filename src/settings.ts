@@ -9,4 +9,5 @@ export default {
   distanceBetweenCircles: 100, // distance between each circle
   beginAt: 0, // start the first item at x
   completeColor: '#ece23a',
+  scale: 20,
 };

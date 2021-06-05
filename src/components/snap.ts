@@ -1,7 +1,7 @@
 import Snap from 'snapsvg';
 import settings from '../settings';
 
-const [w, h] = getRectangle(20);
+const [w, h] = getRectangle(settings.scale);
 
 function getRectangle(s: number) {
   return [s, s / 6];
