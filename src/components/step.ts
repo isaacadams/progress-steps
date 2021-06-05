@@ -12,6 +12,7 @@ export function createStep(number: number) {
   g.add(text);
 
   let line = createLine(circle);
+  line.remove(); // remove until we re-add it
 
   return {
     stepSVG: g,
@@ -21,7 +22,11 @@ export function createStep(number: number) {
         fill: 'url(#check-mark)',
       });
 
-      line.attr({ stroke: settings.completeColor });
+      line.attr({
+        stroke: settings.completeColor,
+      });
+
+      text.remove();
     },
     drawLine: function () {
       g.prepend(line);
