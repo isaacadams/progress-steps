@@ -8,7 +8,7 @@ export default {
   x: 20,
   y: 20,
   distanceBetweenCircles: 200, // distance between each circle
-  beginAt: 0, // start the first item at x
+  beginAt: 0, // start the first step at x
   completeColor: '#ece23a',
   width: '27.5rem',
   height: '2.5rem',

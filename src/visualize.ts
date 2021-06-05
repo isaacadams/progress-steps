@@ -1,12 +1,12 @@
 import settings from './settings';
 import snap from './components/snap';
-import { createItem } from './components/item';
+import { createStep } from './components/step';
 import { Element } from 'snapsvg';
 import { addImagePatternToDefs } from './functions/addImagePatternToDefs';
 import checkMark from 'url:./../check-mark.svg';
 addImagePatternToDefs('check-mark', checkMark);
 
-export const steps = [createItem(1), createItem(2), createItem(3)];
+export const steps = [createStep(1), createStep(2), createStep(3)];
 let [one, two, three] = steps;
 
 // only need connecting lines between one and two
@@ -17,11 +17,11 @@ two.drawLine();
 
 let cursorX = settings.beginAt;
 
-addItemToFlow(cursorX, one.stepSVG);
-addItemToFlow(cursorX, two.stepSVG);
-addItemToFlow(cursorX, three.stepSVG);
+addStepToProgressBar(cursorX, one.stepSVG);
+addStepToProgressBar(cursorX, two.stepSVG);
+addStepToProgressBar(cursorX, three.stepSVG);
 
-function addItemToFlow(x: number, group: Element) {
+function addStepToProgressBar(x: number, group: Element) {
   group.attr({ transform: 'translate(' + [x, 0].join(',') + ')' });
   snap.append(group);
   cursorX = cursorX + settings.distanceBetweenCircles;

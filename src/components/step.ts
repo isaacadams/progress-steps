@@ -2,7 +2,7 @@ import snap from './snap';
 import settings from '../settings';
 import { Element } from 'snapsvg';
 
-export function createItem(number: number) {
+export function createStep(number: number) {
   let g = snap.g();
 
   let circle = createCircle();
