@@ -4,6 +4,7 @@ import { createStep } from './components/step';
 import { Element } from 'snapsvg';
 import { addImagePatternToDefs } from './functions/addImagePatternToDefs';
 import checkMark from 'url:./../check-mark.svg';
+import Snap from 'snapsvg';
 addImagePatternToDefs('check-mark', checkMark);
 
 export const steps = [createStep(1), createStep(2), createStep(3)];
@@ -34,3 +35,23 @@ export function completeStepOne() {
 export function completeStepTwo() {
   two.complete();
 }
+
+// enables the drawing of individual steps
+
+function drawStep(stepNumber: number) {
+  let stepPaper = Snap(`#draw-step-${stepNumber}`);
+  if (!stepPaper) return;
+  stepPaper.attr({
+    viewBox: [0, 0].join(' '),
+    x: 0,
+    y: 0,
+    width: '2.5rem',
+    height: '2.5rem',
+    preserveAspectRatio: 'none',
+  });
+  stepPaper.use(`#step-${stepNumber}`);
+}
+
+drawStep(1);
+drawStep(2);
+drawStep(3);
