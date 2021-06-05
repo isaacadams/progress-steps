@@ -1,3 +1,3 @@
-import * as visualize from './visualize';
+import * as progress from './progress';
 
-window['visualize'] = visualize;
+window['progressBar'] = progress;
