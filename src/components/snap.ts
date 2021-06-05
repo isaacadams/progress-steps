@@ -16,8 +16,8 @@ s.attr({
   viewBox: [-5, 0, '100%', 40].join(' '),
   x: 0,
   y: 0,
-  height: h + 'rem',
-  width: w + 'rem',
+  height: settings.height, //h + 'rem',
+  width: settings.width, //w + 'rem',
   preserveAspectRatio: 'none',
 });
 

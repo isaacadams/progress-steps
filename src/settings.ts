@@ -7,8 +7,10 @@ export default {
   diameter: radius * 2,
   x: 20,
   y: 20,
-  distanceBetweenCircles: 100, // distance between each circle
+  distanceBetweenCircles: 200, // distance between each circle
   beginAt: 0, // start the first item at x
   completeColor: '#ece23a',
+  width: '27.5rem',
+  height: '2.5rem',
   scale,
 };
