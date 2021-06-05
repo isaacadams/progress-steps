@@ -13,11 +13,9 @@ export function addImagePatternToDefs(id: string, src: string) {
 }
 
 export function addElementToDefs(id: string, el: Snap.Element) {
-  let p = el.pattern('0', '0', '100%', '100%');
-  p.attr({
-    id,
-    viewBox: '0 0 512 512',
-    patternUnits: 'objectBoundingBox',
-  });
-  p.toDefs();
+  el.clone()
+    .attr({
+      id,
+    })
+    .toDefs();
 }
