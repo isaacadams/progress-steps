@@ -2,13 +2,14 @@
   "scripts": {
     "clean:build": "rimraf dist",
     "clean:start": "rimraf web",
-    "build": "npm run clean:build && parcel build src/index.js",
+    "build": "npm run clean:build && parcel build src/index.ts",
     "start": "npm run clean:start && parcel serve --dist-dir web src/index.html"
   },
   "dependencies": {
     "snapsvg": "0.5.1"
   },
   "devDependencies": {
+    "@types/snapsvg": "^0.5.0",
     "parcel": "next"
   }
 }
