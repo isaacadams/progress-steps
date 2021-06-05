@@ -7,9 +7,13 @@ function getRectangle(s: number) {
   return [s, s / 6];
 }
 
+// sum of the length of all lines, diameter of all circles, some padding, and an adjustment
+let widthOfViewBox =
+  settings.distanceBetweenCircles * 2 + settings.diameter * 3 + 10 - 50;
+
 const s = Snap(settings.id);
 s.attr({
-  viewBox: [-5, 0, 250, 40].join(' '),
+  viewBox: [-5, 0, '100%', 40].join(' '),
   x: 0,
   y: 0,
   height: h + 'rem',
