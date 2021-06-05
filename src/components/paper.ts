@@ -11,8 +11,8 @@ function getRectangle(s: number) {
 let widthOfViewBox =
   settings.distanceBetweenCircles * 2 + settings.diameter * 3 + 10 - 50;
 
-const s = Snap(settings.id);
-s.attr({
+const paper = Snap(settings.id);
+paper.attr({
   viewBox: [-5, 0, '100%', 40].join(' '),
   x: 0,
   y: 0,
@@ -21,4 +21,4 @@ s.attr({
   preserveAspectRatio: 'none',
 });
 
-export default s;
+export default paper;

@@ -1,9 +1,9 @@
-import snap from './snap';
+import paper from './paper';
 import settings from '../settings';
 import { Element } from 'snapsvg';
 
 export function createStep(number: number) {
-  let g = snap.g();
+  let g = paper.g();
 
   let circle = createCircle();
   let text = createText(number);
@@ -31,7 +31,7 @@ export function createStep(number: number) {
 
 function createCircle() {
   let { x, y, radius } = settings;
-  let circle = snap.circle(x, y, radius);
+  let circle = paper.circle(x, y, radius);
   circle.attr({
     /* cx: settings.x,
     cy: settings.y,
@@ -44,7 +44,7 @@ function createCircle() {
 }
 
 function createText(number: number) {
-  let text = snap.text(settings.x, settings.y + 2, number);
+  let text = paper.text(settings.x, settings.y + 2, number);
   text.attr({
     textAnchor: 'middle',
     dominantBaseline: 'middle',
@@ -62,7 +62,7 @@ function createLine(circle: Element) {
   let moveCursorToRightEdge = 'm ' + [settings.radius, 0].join(','); // relative cursor move
   let drawLineFromRightEdgeToLeftEdge = 'l ' + [lengthOfLine, 0].join(','); // relative line draw
 
-  let path = snap.path(
+  let path = paper.path(
     [
       moveToCenterOfCircle,
       moveCursorToRightEdge,

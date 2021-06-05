@@ -1,5 +1,5 @@
 import settings from './settings';
-import snap from './components/snap';
+import paper from './components/paper';
 import { createStep } from './components/step';
 import { Element } from 'snapsvg';
 import { addImagePatternToDefs } from './functions/addImagePatternToDefs';
@@ -23,7 +23,7 @@ addStepToProgressBar(cursorX, three.stepSVG);
 
 function addStepToProgressBar(x: number, group: Element) {
   group.attr({ transform: 'translate(' + [x, 0].join(',') + ')' });
-  snap.append(group);
+  paper.append(group);
   cursorX = cursorX + settings.distanceBetweenCircles;
 }
 
