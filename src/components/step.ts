@@ -1,6 +1,7 @@
 import paper from './paper';
 import settings from '../settings';
 import { Element } from 'snapsvg';
+import { addElementToDefs } from '../functions/addImagePatternToDefs';
 
 export function createStep(number: number) {
   let g = paper.g();
@@ -10,6 +11,8 @@ export function createStep(number: number) {
 
   g.add(circle);
   g.add(text);
+
+  addElementToDefs(`step-${number}`, g);
 
   let line = createLine(circle);
   line.remove(); // remove until we re-add it
