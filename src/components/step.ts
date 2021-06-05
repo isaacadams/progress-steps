@@ -41,9 +41,6 @@ function createCircle() {
   let { x, y, radius } = settings;
   let circle = paper.circle(x, y, radius);
   circle.attr({
-    /* cx: settings.x,
-    cy: settings.y,
-    r: settings.radius, */
     stroke: 'black',
     strokeWidth: '3',
     fill: 'none',
