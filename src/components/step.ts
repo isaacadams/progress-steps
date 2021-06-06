@@ -60,11 +60,11 @@ function createText(number: number) {
 }
 
 function createLine(circle: Element) {
-  let { cx, cy } = circle.getBBox();
+  let { cx, cy, r2 } = circle.getBBox();
   let lengthOfLine = settings.distanceBetweenCircles - settings.diameter;
 
   let moveToCenterOfCircle = 'M ' + [cx, cy].join(',');
-  let moveCursorToRightEdge = 'm ' + [settings.radius, 0].join(','); // relative cursor move
+  let moveCursorToRightEdge = 'm ' + [r2, 0].join(','); // relative cursor move
   let drawLineFromRightEdgeToLeftEdge = 'l ' + [lengthOfLine, 0].join(','); // relative line draw
 
   let path = paper.path(

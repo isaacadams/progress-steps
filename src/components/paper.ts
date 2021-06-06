@@ -13,12 +13,14 @@ let widthOfViewBox =
 
 const paper = Snap(settings.id);
 paper.attr({
-  viewBox: [-5, 0, '100%', 40].join(' '),
+  //viewBox: [0, 0, settings.width, settings.height].join(' '),
+  viewbox: '0 0 100 40',
   x: 0,
   y: 0,
-  height: settings.height, //h + 'rem',
-  width: settings.width, //w + 'rem',
-  preserveAspectRatio: 'none',
+  width: '100%', //w + 'rem',
+  height: 'auto', // settings.height, //h + 'rem',
+  //preserveAspectRatio: 'none',
+  preserveAspectRatio: 'xMinYMin meet',
 });
 
 export default paper;

@@ -1,16 +1,30 @@
 const radius = 15;
+const distanceBetweenCircles = 200;
 const scale = 28; // width will be 20 rem
+const diameter = radius * 2;
+const numOfCircles = 3;
+const numOfLines = 2;
+
+const maxLength = diameter * numOfCircles + distanceBetweenCircles * numOfLines;
+
+export function scaleDistance() {
+  if (window.innerWidth > maxLength) {
+    return distanceBetweenCircles;
+  }
+
+  return distanceBetweenCircles - (maxLength - window.innerWidth);
+}
 
 export default {
   id: '#completion-bar',
   radius,
-  diameter: radius * 2,
+  diameter,
   x: 20,
   y: 20,
-  distanceBetweenCircles: 200, // distance between each circle
+  distanceBetweenCircles: scaleDistance(), // distance between each circle
   beginAt: 0, // start the first step at x
   completeColor: '#ece23a',
-  width: '27.5rem',
-  height: '2.5rem',
+  width: 440, //'27.5rem',
+  height: 40, //'2.5rem',
   scale,
 };
