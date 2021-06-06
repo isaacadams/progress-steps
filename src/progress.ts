@@ -23,7 +23,7 @@ addStepToProgressBar(cursorX, two.stepSVG);
 addStepToProgressBar(cursorX, three.stepSVG);
 
 function addStepToProgressBar(x: number, group: Element) {
-  group.attr({ transform: 'translate(' + [x, 0].join(',') + ')' });
+  group.attr({ class: 'progress-bar-step', transform: 'translate(' + [x, 0].join(',') + ')' });
   paper.append(group);
   cursorX = cursorX + settings.distanceBetweenCircles;
 }
