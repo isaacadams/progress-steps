@@ -19,18 +19,23 @@ function drawProgressBar() {
 
   let cursorX = settings.beginAt;
 
-  addStepToProgressBar(cursorX, one.stepSVG);
-  addStepToProgressBar(cursorX, two.stepSVG);
-  addStepToProgressBar(cursorX, three.stepSVG);
+  let g1 = addStepToProgressBar(cursorX, one.stepSVG);
+  let g2 = addStepToProgressBar(cursorX, two.stepSVG);
+  let g3 = addStepToProgressBar(cursorX, three.stepSVG);
 
   function addStepToProgressBar(x: number, group: Element) {
     group.attr({
       class: 'progress-bar-step',
       transform: 'translate(' + [x, 0].join(',') + ')',
     });
-    paper.append(group);
+    //paper.append(group);
     cursorX = cursorX + settings.distanceBetweenCircles;
+    return group;
   }
+
+  let g = paper.group(g1, g2, g3);
+  g.attr({ class: 'progress-bar' });
+  paper.append(g);
 }
 
 drawProgressBar();

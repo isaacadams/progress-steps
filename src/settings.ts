@@ -1,3 +1,4 @@
+export const id = '#completion-bar';
 const radius = 15;
 const distanceBetweenCircles = 200;
 const scale = 28; // width will be 20 rem
@@ -17,7 +18,7 @@ export function scaleDistance() {
 }
 
 export default {
-  id: '#completion-bar',
+  id,
   radius,
   diameter,
   x: 20,
