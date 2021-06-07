@@ -1,5 +1,6 @@
 import Snap from 'snapsvg';
-import { id, scaleSvg } from './settings';
+import { id } from './settings';
+import { scaleSvg } from './setup/scaling';
 
 export function onWindowResize() {
   let { distance, lengthOfLines, maxLength } = scaleSvg();
