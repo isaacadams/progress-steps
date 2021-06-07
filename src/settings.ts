@@ -1,16 +1,20 @@
-const radius = 15;
-const scale = 28; // width will be 20 rem
+import { diameter, radius } from './setup/constants';
+import { scaleSvg } from './setup/scaling';
+
+export const id = '#completion-bar';
+
+let { distance, lengthOfLines, maxLength } = scaleSvg();
 
 export default {
-  id: '#completion-bar',
+  id,
   radius,
-  diameter: radius * 2,
+  diameter,
   x: 20,
   y: 20,
-  distanceBetweenCircles: 200, // distance between each circle
   beginAt: 0, // start the first step at x
   completeColor: '#ece23a',
-  width: '27.5rem',
-  height: '2.5rem',
-  scale,
+  height: 40,
+  distanceBetweenCircles: distance, // distance between each circle
+  width: maxLength, //440 should be max
+  lengthOfLines,
 };
