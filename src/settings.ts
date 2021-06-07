@@ -30,13 +30,12 @@ function calculateWidthOfSvg(
 }
 
 function scaleDistance() {
-  if (window.innerWidth > absoluteMaxLength) {
+  let baseline = window.innerWidth - 60;
+  if (baseline > absoluteMaxLength) {
     return absoluteDistanceBetweenCircles;
   }
 
-  return (
-    absoluteDistanceBetweenCircles - (absoluteMaxLength - window.innerWidth)
-  );
+  return absoluteDistanceBetweenCircles - (absoluteMaxLength - baseline);
 }
 
 export function scaleSvg() {
