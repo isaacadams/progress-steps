@@ -1,84 +1,22 @@
-import paper from './paper';
-import settings from '../settings';
-import { Element } from 'snapsvg';
-import { addElementToDefs } from '../functions/addImagePatternToDefs';
+import Snap from 'snapsvg';
 
-export function createStep(number: number) {
-  let g = paper.g();
-
-  let circle = createCircle();
-  let text = createText(number);
-
-  g.add(circle);
-  g.add(text);
-
-  addElementToDefs(`step-${number}`, g);
-
-  let line = createLine(circle);
-  line.remove(); // remove until we re-add it
-
-  return {
-    stepSVG: g,
-    complete: function () {
-      circle.attr({
-        stroke: settings.completeColor,
-        fill: 'url(#check-mark)',
-      });
-
-      line.attr({
-        stroke: settings.completeColor,
-      });
-
-      text.remove();
-    },
-    drawLine: function () {
-      g.prepend(line);
-    },
-  };
+// enables the drawing of individual steps
+export function draw() {
+  drawStep(1);
+  drawStep(2);
+  drawStep(3);
 }
 
-function createCircle() {
-  let { x, y, radius } = settings;
-  let circle = paper.circle(x, y, radius);
-  circle.attr({
-    stroke: 'black',
-    strokeWidth: '3',
-    fill: 'none',
+export function drawStep(stepNumber: number) {
+  let stepPaper = Snap(`#draw-step-${stepNumber}`);
+  if (!stepPaper) return;
+  stepPaper.attr({
+    viewBox: [0, 0].join(' '),
+    x: 0,
+    y: 0,
+    width: '2.5rem',
+    height: '2.5rem',
+    preserveAspectRatio: 'none',
   });
-  return circle;
-}
-
-function createText(number: number) {
-  let text = paper.text(settings.x, settings.y + 2, number);
-  text.attr({
-    textAnchor: 'middle',
-    dominantBaseline: 'middle',
-    stroke: 'black',
-    strokeWidth: '1px',
-  });
-  return text;
-}
-
-function createLine(circle: Element) {
-  let { cx, cy, r2 } = circle.getBBox();
-  let lengthOfLine = settings.distanceBetweenCircles - settings.diameter;
-
-  let moveToCenterOfCircle = 'M ' + [cx, cy].join(',');
-  let moveCursorToRightEdge = 'm ' + [r2, 0].join(','); // relative cursor move
-  let drawLineFromRightEdgeToLeftEdge = 'l ' + [lengthOfLine, 0].join(','); // relative line draw
-
-  let path = paper.path(
-    [
-      moveToCenterOfCircle,
-      moveCursorToRightEdge,
-      drawLineFromRightEdgeToLeftEdge,
-    ].join(' ')
-  );
-
-  path.attr({
-    stroke: 'black',
-    strokeWidth: '3',
-  });
-
-  return path;
+  stepPaper.use(`#step-${stepNumber}`);
 }

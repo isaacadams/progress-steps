@@ -1,7 +1,7 @@
 import { onWindowResize } from './onWindowResize';
-import * as progress from './progress';
+import * as api from './api';
 
-window['progressBar'] = progress;
+window['progressBar'] = api;
 
 window.addEventListener(
   'resize',
