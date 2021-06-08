@@ -12,9 +12,12 @@ export default {
   x: 20,
   y: 20,
   beginAt: 0, // start the first step at x
-  completeColor:
-    (window['progressBar'] && window['progressBar']['completeColor']) ||
-    '#ece23a',
+  completeColor: () => {
+    return (
+      (window['progressBar'] && window['progressBar']['completeColor']) ||
+      '#ece23a'
+    );
+  },
   height: 40,
   distanceBetweenCircles: distance, // distance between each circle
   width: maxLength, //440 should be max

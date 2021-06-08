@@ -21,12 +21,12 @@ export function createStep(number: number) {
     stepSVG: g,
     complete: function () {
       circle.attr({
-        stroke: settings.completeColor,
+        stroke: settings.completeColor(),
         fill: 'url(#check-mark)',
       });
 
       line.attr({
-        stroke: settings.completeColor,
+        stroke: settings.completeColor(),
       });
 
       text.remove();
