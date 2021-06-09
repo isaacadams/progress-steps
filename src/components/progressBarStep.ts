@@ -6,33 +6,34 @@ import { addElementToDefs } from '../functions/addImagePatternToDefs';
 export function createStep(number: number) {
   let circle = createCircle();
   let text = createText(number);
-
   let g = paper.group(circle, text);
-
   addElementToDefs(`step-${number}`, g);
+
+  let groupWithLine = paper.group(g);
 
   let line = createLine(circle);
 
   // remove elements until they are added by user
   line.remove();
-  g.remove();
+  groupWithLine.remove();
 
   return {
-    stepSVG: g,
+    stepSVG: groupWithLine,
     complete: function () {
       circle.attr({
         stroke: settings.completeColor(),
         fill: 'url(#check-mark)',
       });
+      text.remove();
+
+      g.attr('id', `step-${number}-completed`);
 
       line.attr({
         stroke: settings.completeColor(),
       });
-
-      text.remove();
     },
     drawLine: function () {
-      g.prepend(line);
+      groupWithLine.prepend(paper.group(line, g));
     },
   };
 }

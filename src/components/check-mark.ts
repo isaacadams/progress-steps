@@ -3,8 +3,6 @@ import settings from '../settings';
 import paper from './paper';
 
 export function addCheckMarkToDefinitions() {
-  let { completeColor, id } = settings;
-
   createCheckMark('check-mark', settings.completeColor());
 }
 
