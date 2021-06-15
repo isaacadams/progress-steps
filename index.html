@@ -1,1 +1,31 @@
-<!DOCTYPE html><html><body> <div style="display:flex;justify-content:space-between;padding:3rem 1rem"> <button onclick="progressBar.draw({completeColor: 'green'});"> Draw </button> <button onclick="progressBar.completeStepOne();">Complete Step 1</button> <button onclick="progressBar.completeStepTwo();">Complete Step 2</button> <button onclick="progressBar.completeStepThree();"> Complete Step 3 </button> </div> <svg/> <div style="display:flex;flex-direction:column;align-items:center"> <svg/> <svg/> <svg/> </div> <script src="index.e2cbdd81.js"></script> </body></html>
+<!DOCTYPE html>
+<html>
+  <body>
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 3rem;
+        padding-top: 3rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+      "
+    >
+      <button onclick="progressBar.draw({completeColor: 'green'});">
+        Draw
+      </button>
+      <button onclick="progressBar.completeStepOne();">Complete Step 1</button>
+      <button onclick="progressBar.completeStepTwo();">Complete Step 2</button>
+      <button onclick="progressBar.completeStepThree();">
+        Complete Step 3
+      </button>
+    </div>
+    <svg id="completion-bar"></svg>
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <svg id="draw-step-1"></svg>
+      <svg id="draw-step-2"></svg>
+      <svg id="draw-step-3"></svg>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
