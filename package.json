@@ -3,7 +3,8 @@
     "clean:build": "rimraf dist",
     "clean:start": "rimraf web",
     "build": "npm run clean:build && parcel build src/index.html",
-    "start": "npm run clean:start && parcel serve --dist-dir web src/index.html"
+    "start": "npm run clean:start && parcel serve --dist-dir web src/index.html",
+    "build:ghpages": "parcel build src/index.html --public-url ./"
   },
   "dependencies": {
     "snapsvg": "0.5.1"
